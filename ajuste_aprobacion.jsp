@@ -1,7 +1,7 @@
 <html>
-<%@ page import="java.util.*, com.bancoRio.admEfvo.*,com.listados.bean.Style" errorPage="/JSPErrorPage.jsp" %>
+<%@ page import="java.util.*, com.XXXXXX.admEfvo.*,com.listados.bean.Style" errorPage="/JSPErrorPage.jsp" %>
 <head>
-<title>Aprobación de Ajustes</title>
+<title>AprobaciÃ³n de Ajustes</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <meta name="keywords" content="HTML, CSS, XML, XHTML, JavaScript">
 <SCRIPT language="JavaScript">
@@ -37,14 +37,14 @@ function Click(obj){
 </script>
 </head>
 
-<%    //Diego
+<%    
 		String mensajeOK=(String)request.getAttribute("ajuste");
 		if(mensajeOK==null){mensajeOK="";}
-     //Fin Diego		
+     
         Boolean acc = (Boolean)request.getAttribute("tieneAcceso");
-		String 	urlVolver="/com.bancoRio.admEfvo.AjustesMenuServlet";
+		String 	urlVolver="/com.XXXXXX.admEfvo.AjustesMenuServlet";
 		
-        if (acc == null) throw new Exception("La página debe ser accedida mediante un servlet");
+        if (acc == null) throw new Exception("La pÃ¡gina debe ser accedida mediante un servlet");
 
         boolean tieneAcceso = acc.booleanValue();
         if (!tieneAcceso){
@@ -63,7 +63,7 @@ function Click(obj){
 %>
 		
 <body bgcolor="#A0A0A0" text="#FFFFFF" link="#FFFFFF" vlink="#FFFFFF" alink="#00CCFF">
-<form name="ajusteAprobacion" method="post" action="/com.bancoRio.admEfvo.AjusteAprobacionServlet" >
+<form name="ajusteAprobacion" method="post" action="/com.XXXXX.admEfvo.AjusteAprobacionServlet" >
 <input type="hidden" name="tieneAcceso" value="<%= acc %>">
 <br><br>
 <table style="position: fixed;  color: black;" border="1">
@@ -78,7 +78,7 @@ function Click(obj){
 		<tr>
 			<td width="100%" height="40" valign="top">
 				<div align="center">
-					<H1>Aprobación de Ajuste Manuales</H1>
+					<H1>AprobaciÃ³n de Ajuste Manuales</H1>
 				</div>
 			</td>
 		</tr>
@@ -87,7 +87,7 @@ function Click(obj){
 		<tr>
 			<td width="100%" height="40" valign="top">
 				<div align="center">
-					<H1>Aprobación de Ajuste Automaticos</H1>
+					<H1>AprobaciÃ³n de Ajuste Automaticos</H1>
 				</div>
 			</td>
 		</tr>
@@ -105,10 +105,10 @@ function Click(obj){
 				<td align="center"><font class="itemBold">Eliminar</font></td>																
 			</tr>
 			<%
-			//Diego
+		
 			if(ajustesNoAprobados.size()>0)
 			{
-			//fin Diego			
+		
 				Iterator it = ajustesNoAprobados.iterator();
 				Ajuste ajuste = null;
 				while (it.hasNext()) 
@@ -126,7 +126,7 @@ function Click(obj){
 					<td align="center"><font class="item"><input type="submit" name="<%=ajuste.getNroMovimiento()%>" value="Eliminar" onClick="return cancelarAjuste(this)"></font></td>																
 					</tr>
 			<%	}
-			//Diego
+		
 			}
 			else
 			{%>
@@ -135,7 +135,7 @@ function Click(obj){
 				</tr>
 			<%
 			}		
-			//fin Diego						
+									
 			%>						
 		</table>
 		<table  id="Auto" width="85%" border="1" style="visibility: hidden; position: absolute;">
@@ -184,7 +184,7 @@ function Click(obj){
 					</tr>
 										
 			<%}
-			//Diego
+		
 			}
 			else
 			{
@@ -193,14 +193,14 @@ function Click(obj){
 			    	<td class="textoNegroCommon"  COLSPAN=11 align= center  >No hay ajustes registrados&nbsp;</td>
 				</tr>
 			<% 
-			} //Fin Diego
+			} 
 			%>				
 		</table>
-		<!--Diego-->
+		
 			<p align="center" >
 				<font style="font-weight:bold;"><%=mensajeOK %></font>
 			</p>  
-		<!--Fin Diego-->
+		
 		<input type="hidden" name="ajusteAprobar" id="ajusteAprobar" value="">
 		<input type="hidden" name="ajusteAprobacionExc" id="ajusteAprobacionExc" value="">
 		<input type="hidden" name="ajusteCancelar" id="ajusteCancelar" value="">
