@@ -8,7 +8,7 @@
 			try{
 			ExportAjustesAutomaticos Export = new ExportAjustesAutomaticos();
 			
-			Export.ExportarAjuste(request);
+			Export.ExportarAjuste(request,response);
 			
 			MensajeOK Msg = new MensajeOK();
 			
