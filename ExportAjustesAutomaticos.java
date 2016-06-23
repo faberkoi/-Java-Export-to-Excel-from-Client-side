@@ -1,5 +1,3 @@
-package com.bancoRio.excel;
-
 
 import java.awt.FileDialog;
 import java.io.*;
@@ -35,25 +33,15 @@ public class ExportAjustesAutomaticos {
 	{
 		List 	ajustesNoAprobadosExc = null;
 		Ajuste  ajusteExc    = null;
-		//String UserFolder = System.getProperty("user.home");
+		
 		String remotehost = request.getRemoteAddr();  
-		//String namefile = request.getParameter("FileName");
-		//String namefile = "ExcelRE.xls";
+		
 		
 		int i=1;
 
 		try{
-			//Aca se abre el Save As ,"Save", FileDialog.SAVE);
-//			FileDialog fd = new FileDialog(frame, "Save As", FileDialog.SAVE);
-//			fd.setDirectory("C:\\");
-//			fd.setFile("*.xls");			
-//			fd.setVisible(true);
-//			String filename = fd.getDirectory() + fd.getFile();
-//			response.setContentType("application/vnd.ms-excel");
-//	        response.setHeader("Content-Disposition", "attachment; filename="+ namefile);
 			
 			String fileName = "ExcelRE.xls";
-			//fileName = URLDecoder.decode(fileName, "ISO8859_1");
 						
 			//Se Crea el excel			
 			HSSFWorkbook workbook = new HSSFWorkbook();
@@ -145,11 +133,6 @@ public class ExportAjustesAutomaticos {
 			 response.setHeader("Content-disposition", "attachment; filename="+fileName);
 			 OutputStream out = response.getOutputStream();  
 			 workbook.write(out);
-			//Aca se salva el Archivo con el Nombre nuevo
-//			FileOutputStream out = new FileOutputStream(new File(fileName));			
-//			workbook.write(out);
-			//out.close();
-		    
 			
 		    
 		}catch(Exception e){
